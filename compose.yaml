@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  server:
+    image: node:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db.json:/data/db.json
+    working_dir: /data
+    command: bash -c "npm install -g json-server && json-server /data/db.json"
